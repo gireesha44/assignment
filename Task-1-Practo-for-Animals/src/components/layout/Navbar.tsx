@@ -57,10 +57,18 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header 
       className={`sticky top-0 z-40 transition-all duration-200 ${
         isScrolled 
-          ? 'bg-[#FAF9F5]/90 backdrop-blur-md border-b border-slate-200/80 shadow-soft-sm py-2.5' 
-          : 'bg-[#FAF9F5] border-b border-transparent py-4'
+          ? 'bg-[#FAF9F5]/90 backdrop-blur-md border-b border-slate-200/80 shadow-soft-sm py-2' 
+          : 'bg-[#FAF9F5] border-b border-transparent py-3'
       }`}
     >
+      {/* Prototype Context Banner */}
+      <div className="bg-[#153D35] text-[#E7F4EC] text-[11px] font-medium py-1 px-4 text-center border-b border-emerald-900/40 mb-2">
+        <span className="inline-flex items-center gap-1.5">
+          <ShieldCheck className="w-3.5 h-3.5 text-[#23866B]" />
+          <span>Product Development & Design Intern Assignment • Interactive Demo (Simulated Dataset)</span>
+        </span>
+      </div>
+
       <div className="app-container">
         <div className="flex items-center justify-between">
           

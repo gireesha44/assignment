@@ -120,8 +120,8 @@ export const Hero: React.FC<HeroProps> = ({ onExploreClick, onAdvisorClick }) =>
                 <CheckCircle2 className="w-4 h-4 text-violet" />
               </div>
               <div className="text-left">
-                <div className="text-xs font-bold text-midnight">Production Verified</div>
-                <div className="text-[11px] text-slate-500">Live ChromaDB Vector Index</div>
+                <div className="text-xs font-bold text-midnight">Interactive Simulation</div>
+                <div className="text-[11px] text-slate-500">Vector Retrieval Workflow</div>
               </div>
             </div>
 

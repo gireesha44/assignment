@@ -37,7 +37,11 @@ export const Step6Export: React.FC<Step6ExportProps> = ({ onBack }) => {
   const generatedCaption = generateSocialCaption(activeProject);
 
   const handleCopyCaption = () => {
-    navigator.clipboard.writeText(generatedCaption);
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(generatedCaption).catch((err) => {
+        console.warn('Clipboard write error:', err);
+      });
+    }
     setCopiedCaption(true);
     addToast('Caption Copied', 'Paste directly into your LinkedIn or Instagram post.', 'success');
     setTimeout(() => setCopiedCaption(false), 3000);
@@ -120,8 +124,8 @@ export const Step6Export: React.FC<Step6ExportProps> = ({ onBack }) => {
 
   return (
     <div className="max-w-5xl mx-auto space-y-8 py-4">
-      {/* Hidden high-res capture elements (1080x1080 pixel aspect ratio container) */}
-      <div className="fixed -left-[9999px] -top-[9999px] pointer-events-none opacity-0">
+      {/* Hidden high-res capture elements (1080x1080 pixel aspect ratio container, offscreen without opacity 0 to ensure full rendering in html-to-image) */}
+      <div className="fixed -left-[9999px] top-0 pointer-events-none overflow-hidden z-[-100]" aria-hidden="true">
         {activeProject.slides.map((s, idx) => (
           <div
             key={s.id}
